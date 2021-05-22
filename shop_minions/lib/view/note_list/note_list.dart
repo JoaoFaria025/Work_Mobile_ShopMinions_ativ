@@ -1,4 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shop_minions/logic/manage_db/manage_db_event.dart';
+import 'package:shop_minions/logic/manage_db/manage_local_db_bloc.dart';
 import 'package:shop_minions/logic/monitor_db/monitor_db_state.dart';
 import 'package:shop_minions/logic/monitor_db/montior_db_bloc.dart';
 import 'package:shop_minions/model/login.dart';
@@ -38,7 +40,12 @@ class _NoteListState extends State<NoteList> {
             title: Text(noteList[position].email),
             subtitle: Text(noteList[position].senha),
             onTap: () {},
-            trailing: GestureDetector(onTap: () {}, child: Icon(Icons.delete)),
+            trailing: GestureDetector(
+                onTap: () {
+                  BlocProvider.of<ManageLocalBloc>(context)
+                      .add(DeleteEvent(loginId: idList[position]));
+                },
+                child: Icon(Icons.delete)),
           ),
         );
       },
