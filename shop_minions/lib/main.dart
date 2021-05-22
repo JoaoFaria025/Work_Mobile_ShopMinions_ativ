@@ -12,8 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(primaryColor: Color.fromRGBO(229, 237, 244, 1)),
-      home: Splash(),
-      //MainTelaLogin(),
+      home: MainTelaLogin(),
     );
   }
 }
