@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:shop_minions/view/tela_login/tela_login_main.dart';
+import 'package:shop_minions/view/tabbar_login/tab_login.dart';
 
 class Splash extends StatefulWidget {
   @override

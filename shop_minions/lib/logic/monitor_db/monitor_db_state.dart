@@ -1,7 +1,7 @@
 import 'package:shop_minions/model/login.dart';
 
 class MonitorState {
-  List<Login> noteList;
+  List<Login> loginList;
   List<int> idList;
-  MonitorState({this.noteList, this.idList});
+  MonitorState({this.loginList, this.idList});
 }

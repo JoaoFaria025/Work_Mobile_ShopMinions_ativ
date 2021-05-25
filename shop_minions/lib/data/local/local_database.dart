@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:shop_minions/model/login.dart';
-import 'package:shop_minions/view/note_list/note_list.dart';
+import 'package:shop_minions/view/login_list/login_list.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -27,10 +27,10 @@ class DatabaseLocalServer {
   Future<Database> initializeDatabase() async {
     Directory directory = await getApplicationDocumentsDirectory();
     String path = directory.path + 'minions.db';
-    var notesDatabase =
+    var loginDatabase =
         await openDatabase(path, version: 1, onCreate: _createDb);
 
-    return notesDatabase;
+    return loginDatabase;
   }
 
   _createDb(Database db, int newVersion) async {
@@ -65,23 +65,23 @@ class DatabaseLocalServer {
 
 //QUERY (UPDATE):
 
-  Future<int> updateNote(int noteId, Login login) async {
+  Future<int> updateLogin(int loginId, Login login) async {
     Database db = await this.database;
     var result = await db.update(
       tableName,
       login.toMap(),
       where: '$colID = ?',
-      whereArgs: [noteId],
+      whereArgs: [loginId],
     );
     notify();
     return result;
   }
 
 //QUERY (DELETE):
-  Future<int> deleteNote(int noteId) async {
+  Future<int> deleteLogin(int loginId) async {
     Database db = await this.database;
     int result =
-        await db.rawDelete("DELETE FROM $tableName WHERE  $colID= $noteId");
+        await db.rawDelete("DELETE FROM $tableName WHERE  $colID= $loginId");
     notify();
     return result;
   }

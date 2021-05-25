@@ -6,14 +6,14 @@ import 'package:shop_minions/logic/monitor_db/montior_db_bloc.dart';
 import 'package:shop_minions/model/login.dart';
 import 'package:flutter/material.dart';
 
-class NoteList extends StatefulWidget {
+class LoginList extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _NoteListState();
+    return _LoginListState();
   }
 }
 
-class _NoteListState extends State<NoteList> {
+class _LoginListState extends State<LoginList> {
   List colorLocation = [Colors.red, Colors.blue, Colors.yellow];
   List iconLocation = [
     Icons.error_outline,
@@ -24,21 +24,21 @@ class _NoteListState extends State<NoteList> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<MonitorBloc, MonitorState>(builder: (context, state) {
-      return getLoginListView(state.noteList, state.idList);
+      return getLoginListView(state.loginList, state.idList);
     });
   }
 
-  ListView getLoginListView(noteList, idList) {
+  ListView getLoginListView(loginList, idList) {
     return ListView.builder(
-      itemCount: noteList.length,
+      itemCount: loginList.length,
       itemBuilder: (context, position) {
         return Card(
-          color: colorLocation[noteList[position].dataLocation],
+          color: Colors.green[300],
           elevation: 5,
           child: ListTile(
-            leading: Icon(iconLocation[noteList[position].dataLocation]),
-            title: Text(noteList[position].email),
-            subtitle: Text(noteList[position].senha),
+            leading: Icon(Icons.people),
+            title: Text('Nome do usuário: ' + loginList[position].email),
+            subtitle: Text('Senha do usuário: ' + loginList[position].senha),
             onTap: () {},
             trailing: GestureDetector(
                 onTap: () {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shop_minions/view/tela_login/tela_login_main.dart';
+import 'package:shop_minions/view/tabbar_login/tab_login.dart';
+
 import 'package:shop_minions/view/tela_splash/splash.dart';
 
 void main() {

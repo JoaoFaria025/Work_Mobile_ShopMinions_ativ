@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_minions/model/cadastro.dart';
-import 'package:shop_minions/view/tela_login/tela_login_main.dart';
+import 'package:shop_minions/view/tabbar_login/tab_login.dart';
 
 Cadastro cadastro_class = new Cadastro();
 TextStyle style_padrao = TextStyle(

@@ -138,7 +138,7 @@ class MainTelaAtvd4 extends StatelessWidget {
         ),
         validator: (value) {
           if (value.length == 0) {
-            return "Adicione algum título";
+            return "Adicione seu email";
           }
           return null;
         },
@@ -175,7 +175,7 @@ class MainTelaAtvd4 extends StatelessWidget {
         ),
         validator: (value) {
           if (value.length == 0) {
-            return "Adicione alguma anotação";
+            return "Adicione seu usuario";
           }
           return null;
         },

@@ -10,7 +10,7 @@ class ManageLocalBloc extends Bloc<ManageEvent, ManageState> {
   @override
   Stream<ManageState> mapEventToState(ManageEvent event) async* {
     if (event is DeleteEvent) {
-      DatabaseLocalServer.helper.deleteNote(event.loginId);
+      DatabaseLocalServer.helper.deleteLogin(event.loginId);
     } else if (event is UpdateRequest) {
       yield UpdateState(
           loginId: event.loginId, previousLogin: event.previousLogin);
@@ -21,7 +21,8 @@ class ManageLocalBloc extends Bloc<ManageEvent, ManageState> {
         DatabaseLocalServer.helper.insertlogin(event.login);
       } else if (state is UpdateState) {
         UpdateState updateState = state;
-        DatabaseLocalServer.helper.updateNote(updateState.loginId, event.login);
+        DatabaseLocalServer.helper
+            .updateLogin(updateState.loginId, event.login);
         yield InsertState();
       }
     }
